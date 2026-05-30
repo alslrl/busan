@@ -1,0 +1,48 @@
+{
+  "name": "phototoon",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "panel-cutter": "node scripts/panel-cutter-server.mjs",
+    "panel-label-draft": "python3 scripts/auto-label-panels.py",
+    "layout-vision-label": "node scripts/gemini-layout-vision-labels.mjs",
+    "transition-vision-label": "node scripts/gemini-transition-vision-labels.mjs",
+    "panel-resolve": "python3 scripts/resolve-panel-vision-labels.py",
+    "transition-resolve": "python3 scripts/resolve-transition-vision-labels.py",
+    "resolved-pipeline": "python3 scripts/build-webtoon-resolved-pipeline.py",
+    "lint": "eslint . --max-warnings=0",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run src",
+    "verify:ui": "playwright test",
+    "verify:ui:headed": "playwright test --headed",
+    "smoke:openai": "node scripts/require-openai-env.mjs smoke:openai",
+    "smoke:story": "node scripts/require-openai-env.mjs smoke:story",
+    "verify:quality": "node scripts/require-openai-env.mjs verify:quality"
+  },
+  "dependencies": {
+    "@supabase/ssr": "^0.10.2",
+    "@supabase/supabase-js": "^2.104.1",
+    "lucide-react": "^1.8.0",
+    "next": "16.2.4",
+    "openai": "^6.34.0",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "sharp": "^0.34.5"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.60.0",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.4",
+    "playwright": "^1.60.0",
+    "tailwindcss": "^4",
+    "typescript": "^5",
+    "vitest": "^4.1.5"
+  }
+}

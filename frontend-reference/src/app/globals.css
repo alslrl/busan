@@ -1,0 +1,159 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #3a4250;
+  --muted: #f4f9fd;
+  --line: rgba(94, 151, 199, 0.18);
+  --accent: #eaf3fa;
+  --accent-ink: #3a4250;
+  color-scheme: light;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  min-height: 100%;
+  background: #0b0b0d;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+body {
+  height: 100svh;
+  height: 100dvh;
+  min-height: 100svh;
+  min-height: 100dvh;
+  margin: 0;
+  background:
+    radial-gradient(circle at 50% -20%, rgba(94, 151, 199, 0.16), transparent 36%),
+    #0b0b0d;
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  overflow-x: hidden;
+  overscroll-behavior: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+.surface-hairline {
+  border: 1px solid var(--line);
+}
+
+.app-shell {
+  position: relative;
+  display: flex;
+  width: min(100vw, 430px);
+  height: 100svh;
+  height: 100dvh;
+  max-height: 100dvh;
+  min-height: 0;
+  flex-direction: column;
+  margin-inline: auto;
+  overflow: hidden;
+  background: #0b0b0d;
+  box-shadow:
+    0 0 0 1px rgba(94, 151, 199, 0.08),
+    0 18px 48px rgba(0, 0, 0, 0.34);
+}
+
+.app-scroll {
+  scroll-behavior: smooth;
+  scroll-padding-block: 12px;
+  overscroll-behavior-y: contain;
+  -webkit-overflow-scrolling: touch;
+  background: #f8fcfe;
+}
+
+.app-bottom-nav {
+  bottom: max(1.25rem, env(safe-area-inset-bottom));
+}
+
+.phototoon-panel {
+  border: 1px solid rgba(94, 151, 199, 0.16);
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 12px 34px rgba(94, 151, 199, 0.12);
+}
+
+.phototoon-focus {
+  outline: 2px solid rgba(142, 197, 234, 0.82);
+  outline-offset: 2px;
+}
+
+.reader-shell {
+  width: min(100vw, 430px);
+  height: 100svh;
+  height: 100dvh;
+  margin-inline: auto;
+  min-height: auto;
+  background: #fcfbf9;
+  color: #3a4250;
+  box-shadow:
+    0 0 0 1px rgba(94, 151, 199, 0.08),
+    0 30px 80px rgba(94, 151, 199, 0.16);
+  overflow: hidden;
+}
+
+@media (min-width: 520px) and (min-height: 840px) {
+  .reader-shell {
+    border-radius: 48px;
+    box-shadow:
+      0 40px 80px rgba(94, 151, 199, 0.16),
+      0 0 0 1px rgba(94, 151, 199, 0.14);
+  }
+
+  .app-shell {
+    min-height: auto;
+    height: min(calc(100svh - 40px), 780px);
+    height: min(calc(100dvh - 40px), 780px);
+    max-height: calc(100dvh - 40px);
+    border-radius: 36px;
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 430px) {
+  .reader-shell {
+    width: 100vw;
+    height: 100svh;
+    height: 100dvh;
+    border-radius: 0;
+  }
+}
+
+.soft-scrollbar {
+  scrollbar-width: none;
+}
+
+.soft-scrollbar::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}

@@ -1,0 +1,21 @@
+# --- secrets (절대 커밋 금지) ---
+.env
+.env.*
+!.env.example
+
+# --- dependencies / build ---
+node_modules/
+.next/
+out/
+dist/
+build/
+*.tsbuildinfo
+
+# --- test / verification artifacts ---
+test-results/
+playwright-report/
+.playwright/
+
+# --- OS / editor ---
+.DS_Store
+*.log
